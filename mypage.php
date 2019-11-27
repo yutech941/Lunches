@@ -1,3 +1,4 @@
+
 <?php
 require('function.php');
 
@@ -41,9 +42,6 @@ require('head.php');
                      </div>
                       <div class="space">
                      <li>年齢<span class="pr-style"><?php echo $userData['age'].'歳';?></span></li>
-                        </div>
-                         <div class="space">
-                     <li>身長<span class="pr-style"><?php echo $userData['tall'].'cm';?></span></li>
                         </div>
                          <div class="space">
                      <li>職種<span class="pr-style"><?php echo $userData['job'];?></span></li>
