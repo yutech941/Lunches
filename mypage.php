@@ -10,6 +10,7 @@ debugLogStart();
 require('auth.php');
 
 $userData = getUser($_SESSION['user_id']);
+$profpic = $userData['pic'];
 debug('ユーザー情報:'.print_r($userData,true));
 ?>
 
@@ -17,9 +18,6 @@ debug('ユーザー情報:'.print_r($userData,true));
 $siteTitle = 'マイページ';
 require('head.php');
 ?>
-
-
-
 
      <body>
          <!-- ヘッダー -->
@@ -58,9 +56,8 @@ require('head.php');
              <h3 class="title">
                  メイン写真・サブ写真
                  </h3>
-                <a href="" class="img-main">
                 <div class="prof-img">
-                <img src="<?php echo $userData['pic']; ?>" alt="メイン写真">
+                <img src="<?php echo showImg(sanitize($profpic)); ?>" alt="メイン写真">
                 </div>
                 </a>
                 

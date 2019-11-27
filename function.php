@@ -184,9 +184,9 @@ function cssErr($key){
 //DB接続関数
 function dbConnect(){
   //DBへの接続準備
-  $dsn = 'mysql:dbname=lunches;host=localhost;charset=utf8';
-  $user = 'root';
-  $password = 'root';
+  $dsn = 'mysql:dbname=front-yk_lunches;host=mysql57.front-yk.sakura.ne.jp;charset=utf8';
+  $user = 'front-yk';
+  $password = 'ewitv372';
   $options = array(
     // SQL実行失敗時にはエラーコードのみ設定
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -490,7 +490,7 @@ function pagination( $currentPageNum, $totalPageNum,$link, $pageColNum = 5){
 //画像表示用関数
 function showImg($path){
     if(empty($path)){
-        return 'img/sample-img.png';
+        return 'uploads/sample-img.png';
     }else{
         return $path;
     }

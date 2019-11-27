@@ -1,4 +1,5 @@
-<footer id="footer">
+
+   <footer id="footer">
     Copyright <a href="index.php">LCH</a>.All Rights Reserved.
 </footer>
 
@@ -28,6 +29,7 @@
           $dropArea.css('border','none');
           var file = this.files[0],
               $img = $(this).siblings('.prev-img'),
+              $img = $(this).siblings('.prev-img-edit'),
               fileReader = new FileReader();
           
           fileReader.onload = function(event) {

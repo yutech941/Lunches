@@ -102,8 +102,6 @@ require('head.php');
     <?php
     require('header.php');
     ?>
-    
-    
     <!--メインコンテンツ -->
     <div id="login-contents" class="site-width">
         
@@ -121,22 +119,24 @@ require('head.php');
                 </div>
                 <label class="<?php if(!empty($err_msg['email'])) echo 'err';?>">
                  メールアドレス
-                <input type="text" name="email" value="<?php if(!empty($_POST['email'])) echo $_POST['email']; ?>">
+                <input type="text" name="email" class="mail_input" value="<?php if(!empty($_POST['email'])) echo $_POST['email']; ?>">
                 </label>
                 <div class="area-msg">
                     <?php
                     if(!empty($err_msg['email'])) echo $err_msg['email'];
                     ?>
                 </div>
+                <p class="test">(テスト用→test@gmail.com)</p>
                 <label class="<?php if(!empty($err_msg['pass'])) echo 'err'; ?>">
                 パスワード
-                <input type="password" name="pass" value="<?php
+                <input type="password" name="pass" class="pass_input" value="<?php
                 if(!empty($_POST['pass'])) echo $_POST['pass']; ?>">
-                </label> 
+                </label>
                 <div class="area-msg">
                     <?php if(!empty($err_msg['pass'])) echo $err_msg['pass'];
                     ?>
                 </div>
+                <p class="test">(テスト用→test123)</p>
                 <label>
                     <input type="checkbox" name="pass_save">
                     次回ログインを省略する

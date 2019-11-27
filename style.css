@@ -608,6 +608,15 @@ input[type="submit"]:hover {
     display:block;
     padding-left:100px;
 }
+.test{
+    font-size:13px;
+}
+input[type="text"].mail_input{
+    margin-bottom:0;
+}
+input[type="password"].pass_input{
+    margin-bottom:0;
+}
 /*===============================
 プロフィール画像
 ================================*/
@@ -643,8 +652,7 @@ h3.title {
     height: 325px;
 }
 
-.prof-img-sub1 img,
-.prof-img-sub img {
+.prof-img-sub1 img,.prof-img-sub img {
     width: 100px;
     height: 100px;
 }
@@ -712,8 +720,11 @@ h4.title {
 .event-img-container img{
     width:100%;
 }
+.img-main img{
+    width:550px;
+    height:400px;
+}
 .event-img-container .img-main{
-    width:600px;
     float:left;
     padding-right:15px;
     box-sizing:border-box;
