@@ -8,7 +8,7 @@ ini_set('error_log','php.log');
 //================================
 // デバッグ
 //================================
-$debug_flg = true;
+$debug_flg = false;
 //デバッグログ関数
 function debug($str){
   global $debug_flg;
@@ -73,14 +73,14 @@ $err_msg = array();
 // バリデーション関数
 //================================
 
-//バリデーション関数（未入力チェック）
+//未入力チェック
 function validRequired($str, $key){
   if(empty($str)){
     global $err_msg;
     $err_msg[$key] = MSG01;
   }
 }
-//バリデーション関数（Email形式チェック）
+//Email形式チェック
 function validEmail($str, $key){
   if(!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $str)){
     global $err_msg;
@@ -239,6 +239,7 @@ function getUser($u_id){
 
 function getEvent($u_id,$e_id){
     debug('イベント情報を取得します。');
+    
     debug('ユーザーID:'.$u_id);
     debug('イベントID'.$e_id);
     

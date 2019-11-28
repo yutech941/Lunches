@@ -1,3 +1,4 @@
+
 <?php
 
 require('function.php');
@@ -7,7 +8,7 @@ debug('「ユーザー登録ページ');
 debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
 debugLogStart();
 
-//post送信されていた場合
+//post送信あり
 if(!empty($_POST)){
 debug('POST送信があります。');
             
