@@ -1,7 +1,7 @@
 <?php
 require('function.php');
 
-debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
+debug('「「「「「「「「「「「「「「「「 「「「「「「「「「「「「「「「「「「「「「「「「');
 debug('「　退会ページ　');
 debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
 debugLogStart();
@@ -16,7 +16,7 @@ if(!empty($_POST)){
     // SQL文作成
     $sql1 = 'UPDATE users SET  delete_flg = 1 WHERE id = :us_id';
     $sql2 = 'UPDATE event SET  delete_flg = 1 WHERE user_id = :us_id';
-    // データ流し込み
+    // データ流し込n
     $data = array(':us_id' => $_SESSION['user_id']);
     // クエリ実行
     $stmt1 = queryPost($dbh, $sql1, $data);

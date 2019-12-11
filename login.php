@@ -42,7 +42,6 @@ if(!empty($_POST)){
     
     if(empty($err_msg)){
         debug('バリデーションOK');
-        
         try {
             $dbh = dbConnect();
             $sql = 'SELECT password,id FROM users WHERE email = :email AND delete_flg = 0';
@@ -73,7 +72,6 @@ if(!empty($_POST)){
                 }
             //ユーザーIDを格納
             $_SESSION['user_id'] = $result['id'];
-                
             debug('セッション変数の中身:'.print_r($_SESSION,true));
             debug('トップページへ遷移します。');
             header("Location:index.php");
