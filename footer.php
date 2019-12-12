@@ -29,7 +29,6 @@
           $dropArea.css('border','none');
           var file = this.files[0],
               $img = $(this).siblings('.prev-img'),
-              $img = $(this).siblings('.prev-img-edit'),
               fileReader = new FileReader();
           
           fileReader.onload = function(event) {

@@ -99,7 +99,7 @@ require('header.php');
                 </div>
                 <label class="<?php echo cssErr('title');?>">
                     タイトル<span class="label-require">必須</span>
-                    <input type="text" name="title" value="<?php echo getFormData('title'); ?>">
+                    <input type="text" name="title" value="">
                 </label>
                 <div class="area-msg">
                     <?php
@@ -109,12 +109,11 @@ require('header.php');
                 <label class="<?php echo cssErr('category_id');?>">
                     カテゴリ<span class="label-require">必須</span>
                     <select name="category_id" id="">
-                        <option value="0" <?php if(getFormData('category_id') == 0){ echo 'selected';} ?> >選択してください</option>
+                        <option value="0">選択してください</option>
                         <?php
                         foreach($dbCategoryData as $key => $val){
                             ?>
-                            <option value="<?php echo $val['id'] ?>" <?php
-                            if(getFormData('category_id') == $val['id'] ){ echo 'selected';} ?> >
+                            <option value="<?php echo $val['id'] ?>">
                                 <?php echo $val['name']; ?>
                             </option>
                             <?php
@@ -130,7 +129,7 @@ require('header.php');
                 <label class="<?php echo cssErr('detail'); ?>">
                     詳細
                     <textarea name="detail" id="js-count" cols="30" rows="10"
-                              style="height:150px;"><?php echo getFormData('detail'); ?></textarea>
+                              style="height:150px;"></textarea>
                 </label>
                 <p class="counter-text"><span id="js-count-view">0</span>/500文字</p>
                 <div class="area-msg">
@@ -142,7 +141,7 @@ require('header.php');
                     費用
                     <div class="form-group">
                         <input type="text" name="cost" style="width:150px"
-                               placeholder="3,000" value="<?php echo (!empty(getFormData('cost'))) ? getFormData('cost') : 0; ?>">
+                               placeholder="3,000" value="">
                         <span class="option">円</span>
                     </div>
                 </label>
@@ -157,9 +156,7 @@ require('header.php');
                         <label class="area-drop <?php echo cssErr('pic1'); ?>" >
                             <input type="hidden" name="MAX_FILE_SIZE" value="3145728">
                             <input type="file" name="pic1" class="input-file">
-                            <img src="<?php echo getFormData('pic1'); ?>" alt=""
-                                 class="prev-img" style="<?php if(empty(getFormData('pic1')))
-                                echo 'display:none;'; ?>">
+                            <img src="" alt="" class="prev-img">
                             ドラッグ＆ドロップ
                         </label>
                         <div class="area-msg">
@@ -172,9 +169,7 @@ require('header.php');
                         <label class="area-drop <?php echo cssErr('pic2'); ?>">
                             <input type="hidden" name="MAX_FILE_SIZE" value="3145728">
                             <input type="file" name="pic2" class="input-file">
-                            <img src="<?php echo getFormData('pic2'); ?>" alt=""
-                                 class="prev-img" style="<?php if(empty(getFormData('pic2')))
-                                echo 'display:none;'; ?>">
+                            <img src="" alt="" class="prev-img">
                             ドラッグ＆ドロップ
                         </label>
                         <div class="area-msg">
@@ -187,9 +182,8 @@ require('header.php');
                         <label class="area-drop <?php echo cssErr('pic3');?>">
                             <input type="hidden" name="MAX_FILE_SIZE" value="3145728">
                             <input type="file" name="pic3" class="input-file">
-                            <img src="<?php echo getFormData('pic3'); ?>" alt=""
-                                 class="prev-img" style="<?php if(empty(getFormData('pic3')))
-                                echo 'display:none';?>">
+                            <img src="" alt=""
+                                 class="prev-img">
                             ドラッグ＆ドロップ
                         </label>
                         <div class="area-msg">

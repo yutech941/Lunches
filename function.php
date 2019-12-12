@@ -390,7 +390,7 @@ function uploadImg($file,$key){
                 case UPLOAD_ERR_FORM_SIZE: //フォーム定義の最大サイズを超過した場合
                     throw new RuntimeException('ファイルサイズが超過しています。');
                 default: //その他の場合
-                    throw new RUntimeException('その他のエラーが発生しました。');
+                    throw new RuntimeException('その他のエラーが発生しました。');
             }
 
             $type = @exif_imagetype($file['tmp_name']);
