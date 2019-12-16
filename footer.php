@@ -12,7 +12,7 @@
           $ftr.attr({'style': 'position:fixed; top:' + (window.innerHeight - $ftr.outerHeight()) +'px;' });
       }
       
-      //画像ライブプレビュー
+      //画像ライブプレビュー(イベント投稿)
     var $dropArea = $('.area-drop');
     var $fileInput = $('.input-file');
     $dropArea.on('click', function(e){
@@ -37,6 +37,7 @@
           
           fileReader.readAsDataURL(file);
       });
+
 
 //テキストエリアカウント
      var $countUp = $('#js-count'),

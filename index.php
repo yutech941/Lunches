@@ -12,7 +12,7 @@ $currentPageNum = (!empty($_GET['p'])) ? $_GET['p'] : 1; //デフォルトは1�
 //カテゴリー
 $category = (!empty($_GET['c_id'])) ? $_GET['c_id'] : '';
 //ソート順
-$sort = (!empty($_GET['sort'])) ? $_GET['sort'] : '';
+$sort = (!empty($_GET['sort'])) ? $_GET['sort'] : $_GET['sort'] =1;
 //1ページあたりの表示件数
 $listSpan = 5;
 //現在の表示レコード先頭を算出
@@ -110,7 +110,7 @@ require('header.php');
                endforeach;
                ?>
     
-               <?php pagination($currentPageNum,$dbEventData['total_page'],'&c_id='.$category.'&sort='.$sort); ?>
+               <?php pagenation($currentPageNum,$dbEventData['total_page'],'&c_id='.$category.'&sort='.$sort); ?>
     </section>
     
 </div>
