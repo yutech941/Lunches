@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     padding: 0;
@@ -255,12 +254,12 @@ footer a {
 /*========================================
   ページネーション
 ========================================*/
-.pagination {
+.pagenation {
     position: relative;
     overflow: hidden;
 }
 
-.pagination-list {
+.pagenation-list {
     position: relative;
     left: 50%;
     float: left;
@@ -268,18 +267,18 @@ footer a {
     list-style: none;
 }
 
-.pagination .list-event {
+.pagenation .list-event {
     position: relative;
     left: -50%;
     float: left;
     margin-right: 5px;
 }
 
-.pagination .list-event:last-child {
+.pagenation .list-event:last-child {
     margin-right: 0;
 }
 
-.pagination .list-event a {
+.pagenation .list-event a {
     display: block;
     padding: 5px 10px;
     background: #eee;
@@ -288,12 +287,12 @@ footer a {
     font-family: 'Montserrat', sans-serif;
 }
 
-.pagination .list-event.active a {
+.pagenation .list-event.active a {
     background: #333;
     color: white;
 }
 
-.pagination .list-event a:hover {
+.pagenation .list-event a:hover {
     background: #333;
     color: white;
 }
@@ -582,14 +581,7 @@ input[type="submit"]:hover {
 }
 .form .prev-img{
   width:100%;
-  height:145px;
-  position:absolute;
-  top:0;
-  left:0;
-}
-.form .prev-img-edit{
-  width:100%;
-  height:300px;
+  height:100%;
   position:absolute;
   top:0;
   left:0;

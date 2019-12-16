@@ -236,37 +236,28 @@ function getUser($u_id){
         error_log('エラー発生:' . $e->getMessage());
     }
 }
-function getEventList($currentMinNum = 1,$category,$sort,$span = 5){
+function getEventList($currentMinNum = 1,$category,$sort,$span = 5) {
     debug('商品情報を取得します。');
     try {
         $dbh = dbConnect();
         // 件数用のSQL文作成
         $sql = 'SELECT id FROM event';
-        if(!empty($category)) $sql .= ' WHERE category_id = '.$category;
-        if(!empty($sort)){
-            switch($sort){
-                case 1:
-                    $sql .= ' ORDER BY create_date DESC';
-                    break;
-                case 2:
-                    $sql .= ' ORDER BY create_date ASC';
-                    break;
-            }
-        }
         $data = array();
         // クエリ実行
         $stmt = queryPost($dbh, $sql, $data);
         $rst['total'] = $stmt->rowCount(); //総レコード数
-        $rst['total_page'] = ceil($rst['total']/$span); //総ページ数
-        if(!$stmt){
+        $rst['total_page'] = ceil($rst['total'] / $span); //総ページ数
+        if (!$stmt) {
             return false;
         }
 
         // ページング用のSQL文作成
         $sql = 'SELECT *,LEFT(detail,100) FROM event';
-        if(!empty($category)) $sql .= ' WHERE category_id = '.$category;
-        if(!empty($sort)){
-            switch($sort){
+        if (!empty($category)) {
+            $sql .= ' WHERE category_id = ' . $category;
+        }
+        if (isset($sort)) {
+            switch ($sort) {
                 case 1:
                     $sql .= ' ORDER BY create_date DESC';
                     break;
@@ -275,43 +266,44 @@ function getEventList($currentMinNum = 1,$category,$sort,$span = 5){
                     break;
             }
         }
-        $sql .= ' LIMIT '.$span.' OFFSET '.$currentMinNum;
+        $sql .= ' LIMIT ' . $span . ' OFFSET ' . $currentMinNum;
         $data = array();
-        debug('SQL：'.$sql);
+        debug('SQL：' . $sql);
         // クエリ実行
         $stmt = queryPost($dbh, $sql, $data);
 
-        if($stmt){
+        if ($stmt) {
             // クエリ結果のデータを全レコードを格納
             $rst['data'] = $stmt->fetchAll();
             return $rst;
-        }else{
+        } else {
             return false;
         }
 
     } catch (Exception $e) {
         error_log('エラー発生:' . $e->getMessage());
     }
-}
-function getEventOne($e_id){
-    debug('イベント情報を取得します。');
-    debug(' イベントID:'.$e_id);
-    try {
-        $dbh = dbConnect();
-        $sql = 'SELECT e.id , e.title, e.detail, e.cost , e.pic1,e.pic2,e.pic3,e.user_id, e.create_date, e.update_date, c.name AS category
+    function getEventOne($e_id)
+    {
+        debug('イベント情報を取得します。');
+        debug(' イベントID:' . $e_id);
+        try {
+            $dbh = dbConnect();
+            $sql = 'SELECT e.id , e.title, e.detail, e.cost , e.pic1,e.pic2,e.pic3,e.user_id, e.create_date, e.update_date, c.name AS category
         FROM event AS e LEFT JOIN category AS c ON e.category_id = c.id WHERE e.id = :e_id AND e.delete_flg = 0 AND c.delete_flg = 0';
-        $data = array(':e_id' => $e_id);
+            $data = array(':e_id' => $e_id);
 
-        $stmt = queryPost($dbh,$sql,$data);
+            $stmt = queryPost($dbh, $sql, $data);
 
-        if($stmt){
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        }else{
-            return false;
+            if ($stmt) {
+                return $stmt->fetch(PDO::FETCH_ASSOC);
+            } else {
+                return false;
+            }
+
+        } catch (Exeption $e) {
+            error_log('エラー発生:' . $e->getMessage());
         }
-
-    } catch (Exeption $e) {
-        error_log('エラー発生:' . $e->getMessage());
     }
 }
 function getCategory(){
@@ -422,7 +414,7 @@ function uploadImg($file,$key){
 // $totalPageNum : 総ページ数
 //$link : 検索用GETパラメータのリンク
 // $pageColNum : ページネーション表示数
-function pagination( $currentPageNum, $totalPageNum,$link, $pageColNum = 5){
+function pagenation( $currentPageNum, $totalPageNum,$link, $pageColNum = 5){
     // 現在のページが、総ページ数と同じ　かつ　総ページ数が表示項目数以上なら、左にリンク４個出す
     if( $currentPageNum == $totalPageNum && $totalPageNum >= $pageColNum){
         $minPageNum = $currentPageNum - 4;
@@ -449,8 +441,8 @@ function pagination( $currentPageNum, $totalPageNum,$link, $pageColNum = 5){
         $maxPageNum = $currentPageNum + 2;
     }
 
-    echo '<div class="pagination">';
-    echo '<ul class="pagination-list">';
+    echo '<div class="pagenation">';
+    echo '<ul class="pagenation-list">';
     if($currentPageNum != 1){
         echo '<li class="list-event"><a href="?p=1'.$link.'">&lt;</a></li>';
     }

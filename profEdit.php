@@ -158,9 +158,10 @@ require('header.php');
                     <input type="hidden" name="MAX_FILE_SIZE" value="3145728">
                     <input type="file" name="pic" class="input-file"
                            style="height:280px;">
-                    <img src="<?php echo getFormData('pic'); ?>" alt="" class="prev-img-edit" style="<?php if(empty(getFormData('pic'))) echo 'disploay:none;' ?>">
+                    <img src="<?php echo getFormData('pic'); ?>" alt="" class="prev-img" style="<?php if(empty(getFormData('pic'))) echo 'disploay:none;' ?>">
                     ドラッグ＆ドロップ
                 </label>
+
                 <div class="area-msg">
                     <?php
                     echo cssErr('pic');
