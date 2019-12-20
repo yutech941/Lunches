@@ -236,7 +236,7 @@ function getUser($u_id){
         error_log('エラー発生:' . $e->getMessage());
     }
 }
-function getEventList($currentMinNum = 1,$category,$sort,$span = 5) {
+function getEventList($currentMinNum = 1,$category,$sort,$span = 5){
     debug('商品情報を取得します。');
     try {
         $dbh = dbConnect();
@@ -283,6 +283,7 @@ function getEventList($currentMinNum = 1,$category,$sort,$span = 5) {
     } catch (Exception $e) {
         error_log('エラー発生:' . $e->getMessage());
     }
+}
     function getEventOne($e_id)
     {
         debug('イベント情報を取得します。');
@@ -305,7 +306,6 @@ function getEventList($currentMinNum = 1,$category,$sort,$span = 5) {
             error_log('エラー発生:' . $e->getMessage());
         }
     }
-}
 function getCategory(){
     debug('カテゴリー情報を取得します。');
 
